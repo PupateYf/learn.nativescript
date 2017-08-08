@@ -1,12 +1,15 @@
 # nativescript入坑指北
+
 NativeScript官网:[https://www.nativescript.org](https://www.nativescript.org)
 
-目前只踩了mac的坑
-### 安装
+注：目前只踩了mac的坑
+
+# 安装
 
 首先默认各位都装好了[node](https://nodejs.org/)...也默认各位装好了[HomeBrew](http://brew.sh/)...
 
-接下来开始正题，先安装ns的cli工具
+## tns
+先安装ns的cli工具
 ```bash
 $ npm install -g nativescript
 ```
@@ -15,10 +18,6 @@ $ npm install -g nativescript
 安装完成后可以运行下面的命令
 ```bash
 $ tns
-
-或
-
-$ nativescript
 ```
 当出现如下信息，表示已经安装成功
 ```bash
@@ -28,19 +27,30 @@ $ nativescript
 │ Alias   │ $ nativescript <Command> [Command Parameters] [--command <Options>] │
 └─────────┴─────────────────────────────────────────────────────────────────────┘
 ```
+
+## Xcode
+
 安装完ns的脚手架，因为我们写的是原生应用，所以ios开发相关的工具也要一并装上。首先装个XCode,这个可以在App Store里安装。
 
+## Command Line Tools for Xcode
 从[https://developer.apple.com/downloads/index.action](https://developer.apple.com/downloads/index.action)下载Command Line Tools for Xcode并安装(如果有通过terminal使用git基本都装过的了)
 
-接着运行如下命令，安装`xcodeproj`
+## xcodeproj
+
+安装`xcodeproj`
+
 ```bash
 $ sudo gem install xcodeproj
 ```
 
+## CocoaPods
+
 接着安装`CocoaPods`
+
 ```bash
 $ sudo gem install cocoapods
 ```
+## JDK8
 
 同样的，安卓方面，也需要安装一系列的工具...
 
@@ -51,6 +61,7 @@ $ touch .bash_profile
 $ vim .bash_profile
 # 将export JAVA_HOME=$(/usr/libexec/java_home)追加到文件中
 ```
+## Android sdk
 接着安装android sdk
 ```bash
 $ brew cask install android-sdk
@@ -61,6 +72,7 @@ $ cd $(brew --repo); git fetch; git reset --hard origin/master; brew update
 ```
 同样的，在安装完android-sdk后，将`export ANDROID_HOME=/usr/local/share/android-sdk`添加到`~/.bash_profile`中
 
+## Addition
 接着，运行下面这个命令，安装所有安卓所需的依赖包
 ```bash
 $ $ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2" "extras;android;m2repository" "extras;google;m2repository"
@@ -69,8 +81,11 @@ $ $ANDROID_HOME/tools/bin/sdkmanager "tools" "platform-tools" "platforms;android
 
 然后
 
+## Android Studio
 *这里占个坑，android的模拟器还要装个Android Studio后补,并不影响接下来的操作*
 
+
+## Check && Finishing
 
 最后运行
 ```
